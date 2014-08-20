@@ -24,3 +24,35 @@
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 
+.homepage-marketing {
+  text-align: center;
+}
+
+.homepage-marketing-padding {
+  padding-top: 15px;
+}
+
+.building-image {
+  opacity: 0.75;
+}
+
+.building-image:hover {
+  opacity: 1.0;
+}
+
+.imgDescription {
+  position: absolute;
+  top: 225px;
+  text-align: center;
+  text-align: middle;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+  display: none;
+}
+
+
+.imgwrap:hover .imgDescription {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
