@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  apartment_id: 
+  user_id: 
+  lease_start: 2014-08-19
+  lease_end: 2014-08-19
+  active: false
+
+two:
+  apartment_id: 
+  user_id: 
+  lease_start: 2014-08-19
+  lease_end: 2014-08-19
+  active: false
