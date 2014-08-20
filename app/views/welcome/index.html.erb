@@ -1,42 +1,27 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-   <div class="container">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
+<div class="container">
+  <!-- start of building images -->
+  <div class="row">
+    <%= link_to image_tag("homepage_cherrystreet.jpg"), "cherrystreet" %>
+    <%= link_to image_tag("homepage_otherbuilding.jpg"), "#" %>
+ </div>
+ 
 
-    <!-- Wrapper for slides -->
-    
-      <div class="carousel-inner">
-        <div class="item active">
-          <%= image_tag("philly1.jpg", :alt => "PHILLY1", :class =>"img-responsive") %>
-          <div class="carousel-caption">
-            
-          </div>
-        </div>
-        <div class="item">
-          <%= image_tag("philly2.jpg", :alt => "PHILLY2", :class =>"img-responsive") %>
-          <div class="carousel-caption">
-            
-          </div>
-        </div>
-        <div class="item">
-          <%= image_tag("philly3.jpg", :alt => "PHILLY3", :class =>"img-responsive") %>
-          <div class="carousel-caption">
-            
-          </div>
-        </div>
-      </div>
-    
+<!-- start of 3 marketing points -->
+  <div class="row">
+    <div class="col-xs-4">
+      <h1>About Us!!!!!</h1>
+      We have 500 combined years of real estat experience and are here to make sure you get up on the right side of the bed!
+    </div>
+    <div class="col-xs-4">
+      <h1>Contact</h1>
+      Have a question? Want to give us a compliment? Give us a call at (911) 911-9111!
+    </div>
+    <div class="col-xs-4">
+      <h1>Have an issue?</h1>
+      Please stand by. Our online maintenance reporting will be online...eventually.
+    </div>
+<!-- End of 3 marketing points -->
+  </div>  
 
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
-  </div>
+
 </div>
