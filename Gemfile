@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'cancan'
+gem 'faker'
 
 group :doc do
   gem 'sdoc', require: false

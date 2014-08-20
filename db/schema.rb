@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820004756) do
+ActiveRecord::Schema.define(version: 20140820224904) do
 
   create_table "apartment_users", force: true do |t|
     t.integer  "apartment_id"
@@ -35,17 +35,10 @@ ActiveRecord::Schema.define(version: 20140820004756) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "unique_id"
-  end
-
-  create_table "building_apartments", force: true do |t|
     t.integer  "building_id"
-    t.integer  "apartment_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
-  add_index "building_apartments", ["apartment_id"], name: "index_building_apartments_on_apartment_id"
-  add_index "building_apartments", ["building_id"], name: "index_building_apartments_on_building_id"
+  add_index "apartments", ["building_id"], name: "index_apartments_on_building_id"
 
   create_table "building_users", force: true do |t|
     t.integer  "building_id"
@@ -60,7 +53,6 @@ ActiveRecord::Schema.define(version: 20140820004756) do
   create_table "buildings", force: true do |t|
     t.string   "street"
     t.string   "city"
-    t.string   "string"
     t.string   "state"
     t.string   "zip"
     t.datetime "created_at"
@@ -68,14 +60,14 @@ ActiveRecord::Schema.define(version: 20140820004756) do
   end
 
   create_table "maintenance_comments", force: true do |t|
-    t.integer  "maintenancerequest_id"
+    t.integer  "maintenance_request_id"
     t.integer  "user_id"
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "maintenance_comments", ["maintenancerequest_id"], name: "index_maintenance_comments_on_maintenancerequest_id"
+  add_index "maintenance_comments", ["maintenance_request_id"], name: "index_maintenance_comments_on_maintenance_request_id"
   add_index "maintenance_comments", ["user_id"], name: "index_maintenance_comments_on_user_id"
 
   create_table "maintenance_requests", force: true do |t|
