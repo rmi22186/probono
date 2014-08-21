@@ -27,6 +27,7 @@ rand(10..30).times do
       bathrooms: Faker::Number.digit,
       floorplan: Faker::Lorem.characters(10),
       image: Faker::Lorem.characters(10))
+    a.save
   end
 end
 

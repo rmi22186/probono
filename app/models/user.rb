@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
   has_many :maintenance_requests
   has_many :maintenance_comments
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :approved, :apartment_validation, :role, :active
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :approved, :apartment_validation, :role, :active, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relationship
 
   ROLES = %w[tenant landlord admin]
-  
+
   def role?(base_role)
     role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
   end
@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
     else  
       super
     end
+  end
+
+  def user_label_method
+    "#{self.first_name} #{self.last_name}"
   end
 
   private 

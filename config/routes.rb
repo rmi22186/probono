@@ -1,10 +1,10 @@
 Probono::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
   devise_for :users
 
-  namespace :admin do
-    get '', to: 'dashboard#index', as: '/' 
-  end
+  resources :users
 
   resources :cherrystreet, only: [:index]
   match "contact" => 'welcome#contact', via: :get
