@@ -10,49 +10,7 @@
 *
 *= require_self
 *= require_tree .
-*= require bootstrap
+*= require fancybox
+*= require override_bootstrap
+
 */
-
-/* why are these here */ 
-
-@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
-
-/* why are these here */ 
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
-}
-
-.homepage-marketing {
-  text-align: center;
-}
-
-.homepage-marketing-padding {
-  padding-top: 15px;
-}
-
-.building-image {
-  opacity: 0.75;
-}
-
-.building-image:hover {
-  opacity: 1.0;
-}
-
-.imgDescription {
-  position: absolute;
-  top: 225px;
-  text-align: center;
-  text-align: middle;
-  background: rgba(29, 106, 154, 0.72);
-  color: #fff;
-  display: none;
-}
-
-
-.imgwrap:hover .imgDescription {
-  visibility: visible;
-  opacity: 1;
-  display: block;
-}

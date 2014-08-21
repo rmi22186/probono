@@ -15,6 +15,8 @@ gem 'cancan'
 gem 'faker'
 gem 'protected_attributes'
 gem 'rails_admin'
+gem 'fancybox2-rails'
+
 
 group :doc do
   gem 'sdoc', require: false
