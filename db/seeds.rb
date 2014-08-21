@@ -9,9 +9,7 @@ rand(10..30).times do
     password: password,
     password_confirmation: password, 
     phone_number: Faker::PhoneNumber.cell_phone, 
-    role: "Tenant", 
     active: true)
-  u.skip_confirmation!
   u.save
 end
 
@@ -29,6 +27,7 @@ rand(10..30).times do
       bathrooms: Faker::Number.digit,
       floorplan: Faker::Lorem.characters(10),
       image: Faker::Lorem.characters(10))
+    a.save
   end
 end
 
@@ -58,6 +57,31 @@ User.all.each do | x |
     end
   end
 end
+
+
+u = User.new(
+  email: 'admin@probono.com', 
+  password: 'helloworld', 
+  password_confirmation: 'helloworld', 
+  first_name: "Admin", 
+  last_name: "Example", 
+  apartment_validation: "1234",
+  approved: true,
+  active: true)
+u.save
+u.update_attribute(:role, 'admin')
+
+u = User.new(
+  email: 'tenant@probono.com', 
+  password: 'helloworld', 
+  password_confirmation: 'helloworld', 
+  first_name: "Tenant", 
+  last_name: "Example", 
+  apartment_validation: "1234",
+  approved: true,
+  active: true)
+u.save
+u.update_attribute(:role, 'tenant')
 
 puts "Seed finished"
 puts "#{User.count} users created."

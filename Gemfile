@@ -13,6 +13,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'cancan'
 gem 'faker'
+gem 'protected_attributes'
+gem 'rails_admin'
 
 group :doc do
   gem 'sdoc', require: false

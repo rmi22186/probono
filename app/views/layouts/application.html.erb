@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Philadelphia Rentals</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Philadelphia Rentals</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <%= render 'layouts/navbar'  %>
-
-  <% if flash[:notice] %>
-    <div class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:notice] %>
+    <%= render 'layouts/navbar'  %>
+    <div class="container">
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash[:error] %>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:error] %>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:alert] %>
+        </div>
+      <% elsif flash[:not_approved] %>
+        <div class="alert alert">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:not_approved] %>
+        </div>
+      <% end %>
+      <%= yield %>
     </div>
-  <% elseif flash[:error] %>
-    <div class="alert alert-error">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:error] %>
-    </div>
-  <% elseif flash[:alert] %>
-    <div class="alert alert">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
-  
-<%= yield %>
-
-</body>
+  </body>
 </html>
