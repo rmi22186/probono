@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'cancan'
 gem 'faker'
+gem 'fancybox2-rails'
 
 group :doc do
   gem 'sdoc', require: false
