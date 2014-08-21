@@ -9,9 +9,9 @@ rand(10..30).times do
     password: password,
     password_confirmation: password, 
     phone_number: Faker::PhoneNumber.cell_phone, 
-    role: "Tenant", 
+    role: "Tenant",
+    approved: false, 
     active: true)
-  u.skip_confirmation!
   u.save
 end
 
@@ -58,6 +58,33 @@ User.all.each do | x |
     end
   end
 end
+
+
+u = User.first
+u.update_attributes(
+  email: 'akanpurwala@gmail.com', 
+  password: 'helloworld', 
+  password_confirmation: 'helloworld', 
+  first_name: "Amir", 
+  last_name: "Kanpurwala", 
+  apartment_validation: "1234",
+  approved: true,
+  role: "Admin",
+  active: true)
+u.save
+
+u = User.last
+u.update_attributes(
+  email: 'robertming@gmail.com', 
+  password: 'helloworld', 
+  password_confirmation: 'helloworld', 
+  first_name: "Rob", 
+  last_name: "Ing", 
+  apartment_validation: "1234",
+  approved: true,
+  role: "Tenant",
+  active: true)
+u.save
 
 puts "Seed finished"
 puts "#{User.count} users created."

@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">List of Users</h3>
+  </div>
+  
+  <div class="panel-body">
+    <%= link_to "All Users", :action => "index" %> | 
+    <%= link_to "Users awaiting approval", :action => "index", :approved => "false" %>
+    <table class="table">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Last 4 of SSN</th>
+        <th>User approved</th>
+        <th>TBD</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.apartment_validation %></td>
+          <td><%= user.approved %></td>
+          <td>TBD</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+</div>
