@@ -51,8 +51,6 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model Apartment do
-    
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
