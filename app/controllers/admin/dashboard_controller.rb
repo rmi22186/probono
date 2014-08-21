@@ -5,5 +5,6 @@ class Admin::DashboardController < ApplicationController
     else
       @users = User.all
     end
+    authorize! :read, User
   end
 end

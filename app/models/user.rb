@@ -21,12 +21,11 @@ class User < ActiveRecord::Base
   def inactive_message
     if !approved?
       :not_approved
-    else
+    else  
       super
     end
   end
 
-  def set_tenant
-    self.role = 'tenant'
-  end
+  private 
+
 end
