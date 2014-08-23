@@ -16,9 +16,8 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
-  config.excluded_models = %w[ApartmentUser BuildingUser]
-
   config.model User do
+    configure :apartment, :belongs_to_association
     object_label_method do
       :user_label_method
     end
@@ -28,6 +27,7 @@ RailsAdmin.config do |config|
       field :email
       field :apartment_validation
       field :approved
+      field :apartment
       items_per_page 100
     end
 
@@ -42,15 +42,49 @@ RailsAdmin.config do |config|
       field :approved
       field :active
       field :role
+      field :apartment
     end
 
     edit do
       field :approved
       field :role
       field :active
+      field :apartment
     end
   end
-    
+
+  config.model Apartment do
+    configure :building, :belongs_to_association
+    configure :users, :has_many_association
+    object_label_method do
+      :apartment_label_method
+    end
+    list do
+      field :building
+      field :unit
+      field :bedrooms
+      field :users
+    end
+    show do
+      field :building
+      field :unit
+      field :bedrooms
+      field :bathrooms
+      field :floorplan
+      field :image
+      field :users
+    end
+    edit do
+      field :building
+      field :unit
+      field :bedrooms
+      field :bathrooms
+      field :floorplan
+      field :image
+      field :users
+    end
+  end
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -62,7 +96,7 @@ RailsAdmin.config do |config|
     delete
 
     ## With an audit adapter, you can add:
-    # history_index
-    # history_show
+    history_index
+    history_show
   end
 end

@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :maintenance_requests
   has_many :maintenance_comments
+  belongs_to :apartment
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :approved, :apartment_validation, :role, :active, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relationship
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :approved, :apartment_validation, :role, :active, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relationship, :apartment_id, :apartment
 
   ROLES = %w[tenant landlord admin]
 

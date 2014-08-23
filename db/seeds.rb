@@ -1,6 +1,6 @@
 require 'faker'
 
-rand(10..30).times do
+60.times do
   password = Faker::Lorem.characters(10)
   u = User.new(
     first_name: Faker::Name.first_name, 
@@ -13,14 +13,15 @@ rand(10..30).times do
   u.save
 end
 
-rand(10..30).times do
+rand(5..10).times do
   b = Building.new(
     street: Faker::Address.street_address,
     city: Faker::Address.city,
     state: Faker::Address.state,
-    zip: Faker::Address.zip)
+    zip: Faker::Address.zip,
+    name: Faker::Name.first_name)
   b.save
-  rand(10..30).times do
+  rand(5..10).times do
     a = b.apartments.create(
       unit: Faker::Lorem.characters(3),
       bedrooms: Faker::Number.digit,
@@ -34,21 +35,14 @@ end
 User.all.each do | x |
   offset = rand(Apartment.count)
   rand_record = Apartment.first(:offset => offset)
-  start_date = DateTime.now - rand(600..31536000)
-  end_date = start_date + 1.year
-  au = ApartmentUser.create(
-    apartment_id: rand_record.id,
-    user_id: x.id,
-    lease_start: start_date,
-    lease_end: end_date,
-    active: true)
+  x.update_attribute(:apartment_id, rand_record.id)
   2.times do
     mr = x.maintenance_requests.create(
       status: "Open",
       priority: "High",
       description: Faker::Lorem.paragraph,
       email_updates: true)
-    rand(2..5).times do
+    2.times do
       offset2 = rand(User.count)
       rand_record2 = User.first(:offset => offset2)
       mr.maintenance_comments.create(
@@ -57,7 +51,6 @@ User.all.each do | x |
     end
   end
 end
-
 
 u = User.new(
   email: 'admin@probono.com', 
