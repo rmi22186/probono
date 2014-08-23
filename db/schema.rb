@@ -11,20 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821002520) do
-
-  create_table "apartment_users", force: true do |t|
-    t.integer  "apartment_id"
-    t.integer  "user_id"
-    t.date     "lease_start"
-    t.date     "lease_end"
-    t.boolean  "active"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "apartment_users", ["apartment_id"], name: "index_apartment_users_on_apartment_id"
-  add_index "apartment_users", ["user_id"], name: "index_apartment_users_on_user_id"
+ActiveRecord::Schema.define(version: 20140822211719) do
 
   create_table "apartments", force: true do |t|
     t.string   "unit"
@@ -40,16 +27,6 @@ ActiveRecord::Schema.define(version: 20140821002520) do
 
   add_index "apartments", ["building_id"], name: "index_apartments_on_building_id"
 
-  create_table "building_users", force: true do |t|
-    t.integer  "building_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "building_users", ["building_id"], name: "index_building_users_on_building_id"
-  add_index "building_users", ["user_id"], name: "index_building_users_on_user_id"
-
   create_table "buildings", force: true do |t|
     t.string   "street"
     t.string   "city"
@@ -58,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140821002520) do
     t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "maintenance_comments", force: true do |t|
@@ -110,8 +88,10 @@ ActiveRecord::Schema.define(version: 20140821002520) do
     t.boolean  "active"
     t.boolean  "approved",                       default: false,    null: false
     t.string   "apartment_validation"
+    t.integer  "apartment_id"
   end
 
+  add_index "users", ["apartment_id"], name: "index_users_on_apartment_id"
   add_index "users", ["approved"], name: "index_users_on_approved"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
