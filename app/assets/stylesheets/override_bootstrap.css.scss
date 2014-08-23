@@ -10,7 +10,41 @@
 }
 
 body {
-  background-color: #efefef;
+  background-color: #F8F8F8;
+}
+
+.carousel-control.left {
+  background-image: none;
+  background-image: none;
+  background-image: none;
+}
+
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.marketing-indent {
+  padding: 0px 10px 0px 10px;
+}
+
+.row-padding {
+  padding-left: 10px;
 }
 
 .container {

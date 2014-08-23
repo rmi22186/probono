@@ -50,8 +50,6 @@ RailsAdmin.config do |config|
       field :active
     end
   end
-
-  config.model Apartment do
     
   config.actions do
     dashboard                     # mandatory
