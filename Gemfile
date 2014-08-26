@@ -16,6 +16,7 @@ gem 'faker'
 gem 'protected_attributes'
 gem 'rails_admin'
 gem 'fancybox2-rails'
+gem 'will_paginate-bootstrap'
 
 
 group :doc do

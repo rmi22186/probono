@@ -38,6 +38,7 @@ User.all.each do | x |
   x.update_attribute(:apartment_id, rand_record.id)
   2.times do
     mr = x.maintenance_requests.create(
+      apartment: x.apartment,
       title: Faker::Lorem.sentence,
       status: "Open",
       priority: "High",

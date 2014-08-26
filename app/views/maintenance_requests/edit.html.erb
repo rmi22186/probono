@@ -1,2 +1,9 @@
-<h1>MaintenanceRequests#edit</h1>
-<p>Find me in app/views/maintenance_requests/edit.html.erb</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Edit Maintenance Request</h3>
+  </div>
+  
+  <div class="panel-body">
+    <%= render partial: 'form', locals: { mr: @mr } %>
+  </div>
+</div>
