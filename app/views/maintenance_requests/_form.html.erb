@@ -1,0 +1,45 @@
+<%= form_for mr do |f| %>
+      <% if mr.errors.any? %>
+        <div class="alert alert-block">
+          <h4>There are <%= pluralize(mr.errors.count, "error") %>.</h4>
+          <ul>
+            <% mr.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <% if !mr.new_record? %>
+        <div class="form-group">
+          <%= f.label :status, style: "float:left; margin-right:5px;" %>
+          <%= f.select :status, ['Open', 'Closed'], class: "form-control" %>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :title %><br />
+        <%= f.text_field :title, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %><br />
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :priority, style: "float:left; margin-right:5px;" %>
+        <%= f.select :priority, ['High', 'Medium', 'Low'], class: "form-control" %>
+      </div>
+
+      <div class="control-group">
+        <%= f.check_box :email_updates, style: "float:left; margin-right:5px;" %>
+        <%= f.label :email_updates, class: "checkbox" %> 
+      </div>
+
+      <div class="form-group">
+        <div class="controls">
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>

@@ -38,10 +38,13 @@ User.all.each do | x |
   x.update_attribute(:apartment_id, rand_record.id)
   2.times do
     mr = x.maintenance_requests.create(
+      apartment: x.apartment,
+      title: Faker::Lorem.sentence,
       status: "Open",
       priority: "High",
       description: Faker::Lorem.paragraph,
       email_updates: true)
+    mr.save
     2.times do
       offset2 = rand(User.count)
       rand_record2 = User.first(:offset => offset2)
