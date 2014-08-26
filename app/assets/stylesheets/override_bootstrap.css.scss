@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "bootstrap-sprockets";
 
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
 
@@ -121,3 +122,33 @@ h3,
 .center {
   text-align: center;
 }
+
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+ .panel-title { overflow: hidden; }

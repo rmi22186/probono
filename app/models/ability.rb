@@ -5,6 +5,7 @@ class Ability
     user ||= User.new
 
     if user.role? :tenant
+      can :manage, MaintenanceRequest, apartment_id: user.apartment_id
     end
 
     if user.role? :landlord
@@ -13,7 +14,6 @@ class Ability
     if user.role? :admin
       can :manage, :all
     end
-
     
   end
 end

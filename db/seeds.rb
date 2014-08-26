@@ -36,7 +36,7 @@ User.all.each do | x |
   offset = rand(Apartment.count)
   rand_record = Apartment.first(:offset => offset)
   x.update_attribute(:apartment_id, rand_record.id)
-  2.times do
+  rand(1..3).times do
     mr = x.maintenance_requests.create(
       apartment: x.apartment,
       title: Faker::Lorem.sentence,
@@ -45,7 +45,7 @@ User.all.each do | x |
       description: Faker::Lorem.paragraph,
       email_updates: true)
     mr.save
-    2.times do
+    rand(0..5).times do
       offset2 = rand(User.count)
       rand_record2 = User.first(:offset => offset2)
       mr.maintenance_comments.create(
@@ -75,7 +75,8 @@ u = User.new(
   last_name: "Example", 
   apartment_validation: "1234",
   approved: true,
-  active: true)
+  active: true,
+  apartment_id: 37)
 u.save
 u.update_attribute(:role, 'tenant')
 

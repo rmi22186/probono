@@ -1,2 +1,25 @@
-<h1>MaintenanceRequests#show</h1>
-<p>Find me in app/views/maintenance_requests/show.html.erb</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title" style="overflow:hidden;">
+          <div class="title" style="float:left;">
+            <%= @mr.title %>
+          </div>
+          <div class="title" style="float:right;">
+            <%= link_to edit_maintenance_request_path(@mr), class: 'btn btn-default btn-xs' do %>
+              <i class="glyphicon glyphicon-edit"></i>&nbsp; Edit
+            <% end %>
+          </div>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <strong>Opened: </strong> <%= @mr.created_at.strftime("%m/%d/%Y") %> <br>        
+        <strong>Priority: </strong> <%= @mr.priority %> <br>
+        <strong>Description: </strong> <br>
+        <div class="well well-sm"><%= @mr.description %></div>
+        <span class="badge"><%= @mr.maintenance_comments.count %>&nbsp; Comments</span>
+      </div>
+    </div>
+  </div>
+</div>
