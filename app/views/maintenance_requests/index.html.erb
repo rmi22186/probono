@@ -1,0 +1,29 @@
+<h3>Maintenance Requests</h3>
+
+<% if @mainrequests %>
+  <% @mainrequests.each do |mr| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <% if mr.user.apartment %>
+            <strong><%= mr.user.apartment.building.name %> | <%= mr.user.apartment.unit %></strong>:
+          <% end %>
+           <%= link_to mr.title, maintenance_request_path(mr) %>
+          <% if mr.status == "Open" %>
+            <span class="label label-danger">Open</span>
+          <% else %>
+            <span class="label label-success">Closed</span>
+          <% end %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <strong>Opened: </strong> <%= mr.created_at.strftime("%m/%d/%Y") %> <br>        
+        <strong>Priority: </strong> <%= mr.priority %> <br>
+        <strong>Description: </strong> <%= mr.description %> <br>
+        <span class="badge"><%= mr.maintenance_comments.count %></span> Comments
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p>To add a maintenance request, please click <%= link_to "here", new_maintenance_request_path %>.</p>
+<% end %>
