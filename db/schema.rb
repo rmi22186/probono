@@ -1,4 +1,3 @@
-
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -12,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140822211719) do
+ActiveRecord::Schema.define(version: 20140825204723) do
 
   create_table "apartments", force: true do |t|
     t.string   "unit"
@@ -51,15 +50,18 @@ ActiveRecord::Schema.define(version: 20140822211719) do
   add_index "maintenance_comments", ["user_id"], name: "index_maintenance_comments_on_user_id"
 
   create_table "maintenance_requests", force: true do |t|
-    t.integer  "user_id"
-    t.string   "status"
+    t.integer  "apartment_id"
+    t.string   "status",        default: "Open", null: false
     t.string   "priority"
     t.string   "description"
     t.boolean  "email_updates"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
+  add_index "maintenance_requests", ["apartment_id"], name: "index_maintenance_requests_on_apartment_id"
   add_index "maintenance_requests", ["user_id"], name: "index_maintenance_requests_on_user_id"
 
   create_table "users", force: true do |t|

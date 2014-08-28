@@ -11,7 +11,8 @@
 <body>
   <div class="container">
     <%= render 'layouts/navbar'  %>
-
+    <div class="panel panel-default">
+      
     <% if controller?("cherrystreet") %>
     <%= render 'cherrystreet/navbar'  %>
     <% end %>
@@ -39,5 +40,6 @@
       <% end %>
       <%= yield %>
     </div>
-  </body>
+  </div>
+</body>
 </html>
