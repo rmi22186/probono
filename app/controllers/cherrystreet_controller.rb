@@ -4,4 +4,10 @@ class CherrystreetController < ApplicationController
 
   def floorplans
   end
+
+  def neighborhood
+  end
+
+  def pictures
+  end
 end

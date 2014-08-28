@@ -59,7 +59,7 @@ h3,
 }
 
 .homepage-marketing-padding {
-  padding-top: 15px;
+  padding: 15px 0px 0px 0px;
 }
 
 .building-image {
@@ -119,34 +119,29 @@ h3,
 
 } 
 
+
+.buildingnavbar {
+  text-align: center;
+  background-color: #efefef;
+  min-height: 15px;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+}
+
+.buildingnavbar a:hover {
+  text-decoration: none;
+}
+
+.linkhover:hover {
+  text-decoration: none;
+  color: white;
+  }
+
 .center {
   text-align: center;
 }
-
-.alert-error {
-    background-color: #f2dede;
-    border-color: #eed3d7;
-    color: #b94a48;
-    text-align: left;
- }
-
-.alert-alert {
-    background-color: #f2dede;
-    border-color: #eed3d7;
-    color: #b94a48;
-    text-align: left;
- }
-
-.alert-success {
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-    color: #468847;
-    text-align: left;
- }
-
-.alert-notice {
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-    color: #468847;
-    text-align: left;
- }
