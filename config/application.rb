@@ -22,8 +22,8 @@ module Probono
     config.assets.initialize_on_precompile = false
 
     def controller?(*controller)
-    controller.include?(params[:controller])
-  end
+        controller.include?(params[:controller])
+    end
   end
 
   
