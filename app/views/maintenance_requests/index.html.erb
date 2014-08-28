@@ -1,63 +1,60 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Maintenance Requests</h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-offset-1 col-md-10">
-        <div class="menu">
-          <div class="btn-toolbar" role="toolbar">
-            <div class="btn-group btn-group-xs">
-              <%= link_to '<button type="button" class="btn btn-default btn-xs">All</button>'.html_safe, action: "index" %>
-              <%= link_to '<button type="button" class="btn btn-danger btn-xs">Open</button>'.html_safe, action: "index", status: "Open" %>
-              <%= link_to '<button type="button" class="btn btn-success btn-xs">Closed</button>'.html_safe, action: "index", status: "Closed" %>
+<div class="panel-heading">
+  <h3 class="panel-title">Maintenance Requests</h3>
+</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <div class="menu">
+        <div class="btn-toolbar" role="toolbar">
+          <div class="btn-group btn-group-xs">
+            <%= link_to '<button type="button" class="btn btn-default btn-xs">All</button>'.html_safe, action: "index" %>
+            <%= link_to '<button type="button" class="btn btn-danger btn-xs">Open</button>'.html_safe, action: "index", status: "Open" %>
+            <%= link_to '<button type="button" class="btn btn-success btn-xs">Closed</button>'.html_safe, action: "index", status: "Closed" %>
+          </div>
+          <div class="btn-group" style="float:right;">
+            <%= link_to new_maintenance_request_path, class: 'btn btn-default btn-xs' do %>
+              <i class="glyphicon glyphicon-pencil"></i>&nbsp; New
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <% if @mainrequests %>
+        <% @mainrequests.each do |mr| %>
+          <% if mr.status == "Open" %>
+            <div class="panel panel-danger">
+          <% else %>
+            <div class="panel panel-success">
+          <% end %>
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <% if mr.apartment %>
+                  <strong><%= mr.apartment.building.name %> | <%= mr.apartment.unit %></strong>:
+                <% end %>
+                <%= link_to mr.title, maintenance_request_path(mr) %>
+              </h4>
             </div>
-            <div class="btn-group" style="float:right;">
-              <%= link_to new_maintenance_request_path, class: 'btn btn-default btn-xs' do %>
-                <i class="glyphicon glyphicon-pencil"></i>&nbsp; New
+            <div class="panel-body">
+              <strong>Opened: </strong> <%= mr.created_at.strftime("%m/%d/%Y") %> <br>        
+              <strong>Priority: </strong> <%= mr.priority %> <br>
+              <strong>Description: </strong> <br>
+              <div class="well well-sm"><%= mr.description %></div>
+              <%= link_to maintenance_request_path(mr) do %>
+                <span class="badge"><%= mr.maintenance_comments.count %>&nbsp; Comments</span>
               <% end %>
             </div>
           </div>
+        <% end %>
+      <% else %>
+        <p>To add a maintenance request, please click <%= link_to "here", new_maintenance_request_path %>.</p>
+      <% end %>
+      <% if @mainrequests %>
+        <div class="center">
+          <%= will_paginate @mainrequests, renderer: BootstrapPagination::Rails %>    
         </div>
-
-        <br>
-
-        <% if @mainrequests %>
-          <% @mainrequests.each do |mr| %>
-            <% if mr.status == "Open" %>
-              <div class="panel panel-danger">
-            <% else %>
-              <div class="panel panel-success">
-            <% end %>
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <% if mr.apartment %>
-                    <strong><%= mr.apartment.building.name %> | <%= mr.apartment.unit %></strong>:
-                  <% end %>
-                  <%= link_to mr.title, maintenance_request_path(mr) %>
-                </h4>
-              </div>
-              <div class="panel-body">
-                <strong>Opened: </strong> <%= mr.created_at.strftime("%m/%d/%Y") %> <br>        
-                <strong>Priority: </strong> <%= mr.priority %> <br>
-                <strong>Description: </strong> <br>
-                <div class="well well-sm"><%= mr.description %></div>
-                <%= link_to maintenance_request_path(mr) do %>
-                  <span class="badge"><%= mr.maintenance_comments.count %>&nbsp; Comments</span>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        <% else %>
-          <p>To add a maintenance request, please click <%= link_to "here", new_maintenance_request_path %>.</p>
-        <% end %>
-        <% if @mainrequests %>
-          <div class="center">
-            <%= will_paginate @mainrequests, renderer: BootstrapPagination::Rails %>    
-          </div>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
-
