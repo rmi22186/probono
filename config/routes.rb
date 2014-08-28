@@ -9,6 +9,8 @@ Probono::Application.routes.draw do
   match "contact" => 'welcome#contact', via: :get
   root :to => 'welcome#index'
   resources :cherrystreet, only: [:index]
-  match "cherrystreet/floorplan" => 'cherrystreet#floorplan', via: :get
+  match "cherrystreet/floorplans" => 'cherrystreet#floorplans', via: :get
+  match "cherrystreet/neighborhood" => 'cherrystreet#neighborhood', via: :get
+  match "cherrystreet/pictures" => 'cherrystreet#pictures', via: :get
   
 end

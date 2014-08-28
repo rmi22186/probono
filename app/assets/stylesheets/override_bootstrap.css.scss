@@ -61,7 +61,7 @@ h3,
 }
 
 .homepage-marketing-padding {
-  padding-top: 15px;
+  padding: 15px 0px 0px 0px;
 }
 
 .building-image {
@@ -121,3 +121,24 @@ h3,
 
 } 
 
+.buildingnavbar {
+  text-align: center;
+  background-color: #efefef;
+  min-height: 15px;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+}
+
+.buildingnavbar a:hover {
+  text-decoration: none;
+}
+
+.linkhover:hover {
+  text-decoration: none;
+  color: white;
+  }

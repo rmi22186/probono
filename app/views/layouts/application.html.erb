@@ -11,6 +11,10 @@
 <body>
   <div class="container">
     <%= render 'layouts/navbar'  %>
+
+    <% if controller?("cherrystreet") %>
+    <%= render 'cherrystreet/navbar'  %>
+    <% end %>
     
       <% if flash[:notice] %>
         <div class="alert alert-success">

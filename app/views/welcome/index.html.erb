@@ -1,14 +1,20 @@
-
 <!-- start of building images -->
+<div class="row">
+  <div class="col-xs-12">
+    <h1 class="homepage-marketing">Welcome to Cherry & Ridge Apartments!</h1>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-xs-2">
   </div>
   <div class="col-xs-4 imgwrap">
     <%= link_to image_tag("homepage_cherrystreet.jpg", :class=> "building-image"), "cherrystreet" %>
-    <p class="imgDescription">1234 Cherry Street</p>
+    <p><%= link_to "908 Cherry Street", "cherrystreet", :class=> "imgDescription linkhover" %> </p>
   </div>
-  <div class="col-xs-4">
+  <div class="col-xs-4 imgwrap">
     <%= link_to image_tag("homepage_otherbuilding.jpg", :class=> "building-image"), "#" %>
+    <p><%= link_to "913 Ridge Street", "cherrystreet", :class=> "imgDescription linkhover" %> </p>
   </div>
   <div class="col-xs-2">
   </div>
