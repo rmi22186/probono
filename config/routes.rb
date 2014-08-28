@@ -1,5 +1,7 @@
 Probono::Application.routes.draw do
 
+  resources :maintenance_requests
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :users
