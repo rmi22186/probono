@@ -1,6 +1,9 @@
 Probono::Application.routes.draw do
 
-  resources :maintenance_requests
+  get "comments/new"
+  resources :maintenance_requests do
+    resources :maintenance_comments, only: [:create, :destroy]
+  end
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   

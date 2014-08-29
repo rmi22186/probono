@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :maintenance_requests
   has_many :maintenance_comments
   belongs_to :apartment
+  before_create :set_tenant
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :approved, :apartment_validation, :role, :active, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relationship, :apartment_id, :apartment
 
@@ -32,5 +33,9 @@ class User < ActiveRecord::Base
   end
 
   private 
+
+  def set_tenant
+    self.role = 'tenant'
+  end
 
 end
