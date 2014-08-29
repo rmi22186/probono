@@ -6,4 +6,8 @@ module ApplicationHelper
       content_tag :div, capture(&block), class: 'control-group'
     end
   end
+  def comment_url_helper(comment)
+    maintenance_request = comment.maintenance_request
+    [maintenance_request, comment]
+  end
 end

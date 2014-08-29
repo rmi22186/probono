@@ -23,17 +23,18 @@
 
       <% if @mainrequests %>
         <% @mainrequests.each do |mr| %>
-          <% if mr.status == "Open" %>
-            <div class="panel panel-danger">
-          <% else %>
-            <div class="panel panel-success">
-          <% end %>
+          <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
+                <% if mr.status == "Open" %>
+                  <span class="label label-danger">Open</span>
+                <% else %>
+                  <span class="label label-success">Closed</span>
+                <% end %>
                 <% if mr.apartment %>
                   <strong><%= mr.apartment.building.name %> | <%= mr.apartment.unit %></strong>:
                 <% end %>
-                <%= link_to mr.title, maintenance_request_path(mr) %>
+                &nbsp;<%= link_to mr.title, maintenance_request_path(mr) %>
               </h4>
             </div>
             <div class="panel-body">

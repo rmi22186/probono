@@ -36,6 +36,8 @@ class MaintenanceRequestsController < ApplicationController
   def show
     @mr = MaintenanceRequest.find(params[:id])
     authorize! :read, @mr, message: "You can only view maintenance requests associated to your apartment."
+    @comments = @mr.maintenance_comments
+    @comment = MaintenanceComment.new
   end
   
   def edit

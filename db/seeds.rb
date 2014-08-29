@@ -49,7 +49,7 @@ User.all.each do | x |
       offset2 = rand(User.count)
       rand_record2 = User.first(:offset => offset2)
       mr.maintenance_comments.create(
-        user_id: rand_record2.id,
+        user: x,
         comment: Faker::Lorem.paragraph)
     end
   end

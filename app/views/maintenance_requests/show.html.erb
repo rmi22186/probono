@@ -1,10 +1,18 @@
 <div class="panel-body">
-  <div class="panel panel-primary">
+  <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title" style="overflow:hidden;">
         <div class="title" style="float:left;">
-          <%= @mr.title %>
+          <% if @mr.status == "Open" %>
+            <span class="label label-danger">Open</span>
+          <% else %>
+            <span class="label label-success">Closed</span>
+          <% end %>
+          <% if @mr.apartment %>
+            <strong><%= @mr.apartment.building.name %> | <%= @mr.apartment.unit %></strong>: 
+          <% end %>
         </div>
+        &nbsp; <%= @mr.title %>
         <div class="title" style="float:right;">
           <%= link_to edit_maintenance_request_path(@mr), class: 'btn btn-default btn-xs' do %>
             <i class="glyphicon glyphicon-edit"></i>&nbsp; Edit
@@ -13,11 +21,18 @@
       </h3>
     </div>
     <div class="panel-body">
+      <strong>Created by: </strong> <%= @mr.user.first_name %> <%= @mr.user.last_name %> <br>
       <strong>Opened: </strong> <%= @mr.created_at.strftime("%m/%d/%Y") %> <br>        
       <strong>Priority: </strong> <%= @mr.priority %> <br>
       <strong>Description: </strong> <br>
       <div class="well well-sm"><%= @mr.description %></div>
       <span class="badge"><%= @mr.maintenance_comments.count %>&nbsp; Comments</span>
     </div>
+  </div>
+  <h4>New Comment</h4>
+  <%= render partial: 'comments/form', locals: {mr: @mr, comment: @comment} %>
+  <br>
+  <div class="comments">
+    <%= render partial: 'comments/comment', collection: @comments %>
   </div>
 </div>
